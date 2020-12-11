@@ -18,6 +18,9 @@ public class CountEventScheduler {
 
     private final String TWIT_COUNT = "twitCount";
 
+    /**
+     * Sending tweet count to logstash scheduler
+     */
     @Scheduled(fixedDelayString = "${log.count.period}")
     public void logTwitCount() {
         Long count = countEventService.getAndResetTwitCount();

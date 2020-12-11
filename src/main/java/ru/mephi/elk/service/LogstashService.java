@@ -18,10 +18,18 @@ public class LogstashService {
     @Value("${logstash.port}")
     private String port;
 
+    /**
+     * Logstasg service required arguments constructor
+     * @return LogstashService object
+     */
     public LogstashService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }
 
+    /**
+     * Send count of event to logstash
+     * @param objectCount event count info
+     */
     public void sendObjectCount(ObjectCountDto objectCount) {
         String url = String.format("http://%s:%s", host, port);
         restTemplate.postForObject(url, objectCount, String.class);

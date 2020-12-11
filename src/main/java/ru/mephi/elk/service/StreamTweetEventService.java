@@ -17,6 +17,9 @@ public class StreamTweetEventService {
     private final Twitter twitter;
     private final StreamListener onTwitListener;
 
+    /**
+     * Start consuming from stream
+     */
     @PostConstruct
     public void streamTweetEvent() {
         // this will open the stream

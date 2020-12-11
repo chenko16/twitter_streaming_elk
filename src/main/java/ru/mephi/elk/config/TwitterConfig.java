@@ -21,6 +21,10 @@ public class TwitterConfig {
     @Value("${twitter.access.token.secret}")
     private String accessTokenSecret;
 
+    /**
+     * Create bean of TwitterTemplate for connecting to stream
+     * @return  TwitterTemplate
+     */
     @Bean
     Twitter getTwtTemplate(){
         return new TwitterTemplate(consumerKey, consumerSecret, accessToken, accessTokenSecret);
